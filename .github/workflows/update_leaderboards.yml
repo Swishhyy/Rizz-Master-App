@@ -1,0 +1,22 @@
+name: Update Leaderboard
+
+on:
+  push:
+    paths:
+      - leaderboard.md
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "youremail@example.com"
+          git add leaderboard.md
+          git commit -m "Automated leaderboard update"
+          git push
